@@ -1,0 +1,10 @@
+var fs = require('fs');
+var PeerServer = require('peer').PeerServer;
+
+var server = PeerServer({
+  port: 9000,
+  ssl: {
+    key: fs.readFileSync('/etc/letsencrypt/live/matr-home.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/matr-home.com/cert.pem')
+  }
+});
